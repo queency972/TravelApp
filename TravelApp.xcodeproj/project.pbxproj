@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9BACF28243ACFCB0074E6B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BACF27243ACFCB0074E6B0 /* HomeViewController.swift */; };
+		E9BACF2A243AD90E0074E6B0 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BACF29243AD90E0074E6B0 /* ExtensionUIView.swift */; };
+		E9BACF2E243AE8B80074E6B0 /* ExchangeRatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BACF2D243AE8B80074E6B0 /* ExchangeRatesViewController.swift */; };
+		E9CBA538243BF99400BFEA04 /* WeatherServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBA537243BF99400BFEA04 /* WeatherServices.swift */; };
+		E9CBA53C243D61D100BFEA04 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBA53B243D61D100BFEA04 /* TranslateViewController.swift */; };
+		E9EB11CA243AF875008241A7 /* CurrencyServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EB11C9243AF875008241A7 /* CurrencyServices.swift */; };
+		E9EB11CC243B0AD2008241A7 /* WeatherAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EB11CB243B0AD2008241A7 /* WeatherAppViewController.swift */; };
 		E9FEEFB1242C3DAC005061A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FEEFB0242C3DAC005061A2 /* AppDelegate.swift */; };
 		E9FEEFB3242C3DAC005061A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FEEFB2242C3DAC005061A2 /* SceneDelegate.swift */; };
-		E9FEEFB5242C3DAC005061A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FEEFB4242C3DAC005061A2 /* ViewController.swift */; };
 		E9FEEFB8242C3DAC005061A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9FEEFB6242C3DAC005061A2 /* Main.storyboard */; };
 		E9FEEFBA242C3DB3005061A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9FEEFB9242C3DB3005061A2 /* Assets.xcassets */; };
 		E9FEEFBD242C3DB3005061A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9FEEFBB242C3DB3005061A2 /* LaunchScreen.storyboard */; };
@@ -35,10 +41,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E9BACF27243ACFCB0074E6B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E9BACF29243AD90E0074E6B0 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
+		E9BACF2D243AE8B80074E6B0 /* ExchangeRatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesViewController.swift; sourceTree = "<group>"; };
+		E9CBA537243BF99400BFEA04 /* WeatherServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServices.swift; sourceTree = "<group>"; };
+		E9CBA53B243D61D100BFEA04 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
+		E9EB11C9243AF875008241A7 /* CurrencyServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServices.swift; sourceTree = "<group>"; };
+		E9EB11CB243B0AD2008241A7 /* WeatherAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppViewController.swift; sourceTree = "<group>"; };
 		E9FEEFAD242C3DAC005061A2 /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9FEEFB0242C3DAC005061A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9FEEFB2242C3DAC005061A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E9FEEFB4242C3DAC005061A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E9FEEFB7242C3DAC005061A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9FEEFB9242C3DB3005061A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9FEEFBC242C3DB3005061A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,12 +111,10 @@
 		E9FEEFAF242C3DAC005061A2 /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
-				E9FEEFB0242C3DAC005061A2 /* AppDelegate.swift */,
-				E9FEEFB2242C3DAC005061A2 /* SceneDelegate.swift */,
-				E9FEEFB4242C3DAC005061A2 /* ViewController.swift */,
-				E9FEEFB6242C3DAC005061A2 /* Main.storyboard */,
-				E9FEEFB9242C3DB3005061A2 /* Assets.xcassets */,
-				E9FEEFBB242C3DB3005061A2 /* LaunchScreen.storyboard */,
+				E9FEEFE3242C3E54005061A2 /* Supporting Files */,
+				E9FEEFE2242C3E32005061A2 /* Model */,
+				E9FEEFE1242C3E29005061A2 /* View */,
+				E9FEEFE0242C3E1C005061A2 /* Controller */,
 				E9FEEFBE242C3DB3005061A2 /* Info.plist */,
 			);
 			path = TravelApp;
@@ -126,6 +136,46 @@
 				E9FEEFD4242C3DB3005061A2 /* Info.plist */,
 			);
 			path = TravelAppUITests;
+			sourceTree = "<group>";
+		};
+		E9FEEFE0242C3E1C005061A2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E9BACF27243ACFCB0074E6B0 /* HomeViewController.swift */,
+				E9BACF2D243AE8B80074E6B0 /* ExchangeRatesViewController.swift */,
+				E9EB11CB243B0AD2008241A7 /* WeatherAppViewController.swift */,
+				E9CBA53B243D61D100BFEA04 /* TranslateViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E9FEEFE1242C3E29005061A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9FEEFB6242C3DAC005061A2 /* Main.storyboard */,
+				E9FEEFBB242C3DB3005061A2 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9FEEFE2242C3E32005061A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9BACF29243AD90E0074E6B0 /* ExtensionUIView.swift */,
+				E9EB11C9243AF875008241A7 /* CurrencyServices.swift */,
+				E9CBA537243BF99400BFEA04 /* WeatherServices.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9FEEFE3242C3E54005061A2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9FEEFB0242C3DAC005061A2 /* AppDelegate.swift */,
+				E9FEEFB2242C3DAC005061A2 /* SceneDelegate.swift */,
+				E9FEEFB9242C3DB3005061A2 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +309,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9FEEFB5242C3DAC005061A2 /* ViewController.swift in Sources */,
 				E9FEEFB1242C3DAC005061A2 /* AppDelegate.swift in Sources */,
+				E9CBA53C243D61D100BFEA04 /* TranslateViewController.swift in Sources */,
 				E9FEEFB3242C3DAC005061A2 /* SceneDelegate.swift in Sources */,
+				E9EB11CA243AF875008241A7 /* CurrencyServices.swift in Sources */,
+				E9BACF2E243AE8B80074E6B0 /* ExchangeRatesViewController.swift in Sources */,
+				E9CBA538243BF99400BFEA04 /* WeatherServices.swift in Sources */,
+				E9EB11CC243B0AD2008241A7 /* WeatherAppViewController.swift in Sources */,
+				E9BACF2A243AD90E0074E6B0 /* ExtensionUIView.swift in Sources */,
+				E9BACF28243ACFCB0074E6B0 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +493,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69VMC86YYY;
 				INFOPLIST_FILE = TravelApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -444,7 +501,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.steve.bernard.TravelApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -455,6 +512,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69VMC86YYY;
 				INFOPLIST_FILE = TravelApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,7 +520,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.steve.bernard.TravelApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
