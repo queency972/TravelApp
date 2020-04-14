@@ -10,6 +10,10 @@ import Foundation
 
 class WeatherServices {
 
+    private let weatherURL = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=New%20york&appid=bd287ad9efd242c9e57f715b9a2fab60")!
+    private var task: URLSessionDataTask?
+    private var currencySession =  URLSession(configuration: .default)
+
     private var _tempIcon: String!
     private var _cityName: String!
     private var _date: String!
@@ -42,32 +46,55 @@ class WeatherServices {
     }
 
     func getWeather() {
-        guard let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=New%20york&appid=bd287ad9efd242c9e57f715b9a2fab60") else {return}
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+         task?.cancel()
+
+         task = URLSession.shared.dataTask(with: weatherURL) { (data, response, error) in
             if let data = data, error == nil  {
                 do {
-                    guard let json = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any] else {return}
-                    guard let weatherDetails = json["weather"] as? [[String:Any]], let weatherMain = json["main"] as? [String:Any] else {return}
-                    let date = (json["dt"] as? Double as Any)
-                    self._currentTemp = (weatherMain["temp"] as! Double)
-                    self._descriptionTemp = (weatherDetails.first?["description"] as? String)
-                    self._tempIcon = (weatherDetails.first?["icon"] as? String)
-                    let convertedDate = Date(timeIntervalSince1970: date as! TimeInterval)
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateStyle = .medium
-                    dateFormatter.timeStyle = .none
-                    let currentDate = dateFormatter.string(from: convertedDate)
-                    self._date = "\(currentDate)"
-                    print(self._date!)
-                    print(self._descriptionTemp!)
-                    print(self._currentTemp!)
-                    print(self._tempIcon!)
+                    guard let dateResponseJSON = try? JSONDecoder().decode(CurrentLocalWeather.self, from: data)
+                       else {
+                      //callback(false)
+                            return
+                    }
+                    print("La date est", dateResponseJSON.dt)
+
+                    guard let mainResponseJSON = try? JSONDecoder().decode(Main.self, from: data)
+                      else {
+                    //callback(false)
+                            return
+                    }
+                    print("La temperature est de", mainResponseJSON.main["temp"]!)
+
+                    guard let weatherResponseJSON = try? JSONDecoder().decode([Weather].self, from: data)
+                      else {
+                    //callback(false)
+                            return
+                    }
+                    print("La description du temps est", weatherResponseJSON[Weather])
+
+
+
+                    //guard let weatherDetails = responseJSON["weather"] as? [[String:Any]], let weatherMain = responseJSON["main"] as? [String:Any] else {return}
+                    //let date = (responseJSON["dt"] as? Double as Any)
+//                    self._currentTemp = (weatherMain["temp"] as! Double)
+//                    self._descriptionTemp = (weatherDetails.first?["description"] as? String)
+//                    self._tempIcon = (weatherDetails.first?["icon"] as? String)
+//                    let convertedDate = Date(timeIntervalSince1970: date as! TimeInterval)
+//                    let dateFormatter = DateFormatter()
+//                    dateFormatter.dateStyle = .medium
+//                    dateFormatter.timeStyle = .none
+//                    let currentDate = dateFormatter.string(from: convertedDate)
+//                    self._date = "\(currentDate)"
+//                    print(self._date!)
+//                    print(self._descriptionTemp!)
+//                    print(self._currentTemp!)
+//                    print(self._tempIcon!)
                 }
-               catch {
-                print("Error!!!")
-               }
+                catch {
+                    print("Error!!!")
+                }
             }
-        };task.resume()
+        };task?.resume()
     }
 }
 

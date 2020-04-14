@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E9B8F6142444DF6700A52C8B /* ExchangeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B8F6132444DF6700A52C8B /* ExchangeResponse.swift */; };
+		E923012824453F7C00165D1B /* WeatherExchangeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923012724453F7C00165D1B /* WeatherExchangeResponse.swift */; };
+		E9B8F6142444DF6700A52C8B /* CurrencyExchangeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B8F6132444DF6700A52C8B /* CurrencyExchangeResponse.swift */; };
 		E9BACF28243ACFCB0074E6B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BACF27243ACFCB0074E6B0 /* HomeViewController.swift */; };
 		E9BACF2A243AD90E0074E6B0 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BACF29243AD90E0074E6B0 /* ExtensionUIView.swift */; };
 		E9BACF2E243AE8B80074E6B0 /* ExchangeRatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BACF2D243AE8B80074E6B0 /* ExchangeRatesViewController.swift */; };
@@ -42,7 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E9B8F6132444DF6700A52C8B /* ExchangeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeResponse.swift; sourceTree = "<group>"; };
+		E923012724453F7C00165D1B /* WeatherExchangeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExchangeResponse.swift; sourceTree = "<group>"; };
+		E9B8F6132444DF6700A52C8B /* CurrencyExchangeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeResponse.swift; sourceTree = "<group>"; };
 		E9BACF27243ACFCB0074E6B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E9BACF29243AD90E0074E6B0 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
 		E9BACF2D243AE8B80074E6B0 /* ExchangeRatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesViewController.swift; sourceTree = "<group>"; };
@@ -166,7 +168,8 @@
 				E9BACF29243AD90E0074E6B0 /* ExtensionUIView.swift */,
 				E9EB11C9243AF875008241A7 /* CurrencyServices.swift */,
 				E9CBA537243BF99400BFEA04 /* WeatherServices.swift */,
-				E9B8F6132444DF6700A52C8B /* ExchangeResponse.swift */,
+				E9B8F6132444DF6700A52C8B /* CurrencyExchangeResponse.swift */,
+				E923012724453F7C00165D1B /* WeatherExchangeResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,9 +320,10 @@
 				E9FEEFB3242C3DAC005061A2 /* SceneDelegate.swift in Sources */,
 				E9EB11CA243AF875008241A7 /* CurrencyServices.swift in Sources */,
 				E9BACF2E243AE8B80074E6B0 /* ExchangeRatesViewController.swift in Sources */,
-				E9B8F6142444DF6700A52C8B /* ExchangeResponse.swift in Sources */,
+				E9B8F6142444DF6700A52C8B /* CurrencyExchangeResponse.swift in Sources */,
 				E9CBA538243BF99400BFEA04 /* WeatherServices.swift in Sources */,
 				E9EB11CC243B0AD2008241A7 /* WeatherAppViewController.swift in Sources */,
+				E923012824453F7C00165D1B /* WeatherExchangeResponse.swift in Sources */,
 				E9BACF2A243AD90E0074E6B0 /* ExtensionUIView.swift in Sources */,
 				E9BACF28243ACFCB0074E6B0 /* HomeViewController.swift in Sources */,
 			);

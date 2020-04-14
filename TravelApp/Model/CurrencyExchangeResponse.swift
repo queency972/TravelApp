@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct ExchangeResponse: Codable {
+struct CurrencyExchangeResponse: Codable {
     let rates: [String:Double]
     let date: String
 }
 
-extension ExchangeResponse: Equatable {
+extension CurrencyExchangeResponse: Equatable {
 }

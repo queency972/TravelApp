@@ -35,7 +35,7 @@ class CurrencyServices {
                     return
                 }
                 // On decode le JSON en un dictionnaire qui a comme clé String et valeur Double.
-                guard let responseJSON = try? JSONDecoder().decode(ExchangeResponse.self, from: data)
+                guard let responseJSON = try? JSONDecoder().decode(CurrencyExchangeResponse.self, from: data)
                     // On extrait le rates
                    else {
                   callback(false)
