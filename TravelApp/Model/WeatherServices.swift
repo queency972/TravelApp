@@ -10,7 +10,6 @@ import Foundation
 
 class WeatherServices {
 
-    private let weatherURL = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=New%20york&appid=bd287ad9efd242c9e57f715b9a2fab60")!
     private var task: URLSessionDataTask?
     private var currencySession =  URLSession(configuration: .default)
 
@@ -47,27 +46,27 @@ class WeatherServices {
 
     func getWeather(callback: @escaping (Bool) -> Void) {
         task?.cancel()
-        task = URLSession.shared.dataTask(with: weatherURL) { (data, response, error) in
+        task = URLSession.shared.dataTask(with: Url().weatherNYURL) { (data, response, error) in
             DispatchQueue.main.async {
                 if let data = data, error == nil  {
                     do {
-                        guard let mainResponseJSON = try? JSONDecoder().decode(CurrentLocalWeather.self, from: data)
-                            else {
-                                callback(false)
-                                return
-                        }
 
-                        guard let responseJSON = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any] else {
-                            callback(false)
-                            return
-                        }
-                        guard let weatherDetails = responseJSON["weather"] as? [[String:Any]] else {
-                            callback(false)
-                            return
-                        }
+                        guard let response = response as? HTTPURLResponse, response.statusCode == 200
+                            else { callback(false)
+                                return }
+
+                        guard let mainResponseJSON = try? JSONDecoder().decode(CurrentLocalWeather.self, from: data)
+                            else { callback(false)
+                                return }
+
+                        guard let responseJSON = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any] else { callback(false)
+                                return }
+
+                        guard let weatherDetails = responseJSON["weather"] as? [[String:Any]]
+                            else { callback(false)
+                                return }
 
                         let date = mainResponseJSON.dt
-                        //self._currentTemp = mainResponseJSON.main["temp"]!
                         self._descriptionTemp = (weatherDetails.first?["description"] as? String)
                         self._tempIcon = (weatherDetails.first?["icon"] as! String)
                         let convertedDate = Date(timeIntervalSince1970: TimeInterval(date))

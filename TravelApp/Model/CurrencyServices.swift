@@ -13,7 +13,7 @@ class CurrencyServices {
     static var activeCurrency: Double = 0
 
     // Creation d'un requete, instance URLSessionTask pour l'appel reseau
-    private let ratesURL = URL(string: "http://data.fixer.io/api/latest?access_key=e3bd9580fafac7241a9fa5b062c66cf1")!
+    
     private var task: URLSessionDataTask?
     private var currencySession =  URLSession(configuration: .default)
 
@@ -21,7 +21,7 @@ class CurrencyServices {
     func getRates(callback: @escaping (Bool) -> Void) {
         task?.cancel()
 
-        task = currencySession.dataTask(with: ratesURL) { (data, response, error) in
+        task = currencySession.dataTask(with: Url().ratesURL) { (data, response, error) in
             // Tout ce qui touche à l'interface doit avoir lieu dans la main Queue, On place ce block dans la Main Queue.
             DispatchQueue.main.async {
                 // Verification des données et si il n'y a pas d'erreur.
