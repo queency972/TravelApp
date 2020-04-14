@@ -20,29 +20,21 @@ class ExchangeRatesViewController: UIViewController {
     @IBOutlet weak var outputValueLabel: UILabel!
 
     @IBAction func changed(_ sender: Any) {
-        currency.getRates()
-        // Set text to label
-        let myInputCurrency = (inputValueButton.text! as NSString).doubleValue
-        var myOutputCurrency = (outputValueLabel.text! as NSString).doubleValue
-        myOutputCurrency = myInputCurrency * CurrencyServices.activeCurrency
+        currency.getRates { (success) in
+            if success {
+                // Set text to label
+                let myInputCurrency = (self.inputValueButton.text! as NSString).doubleValue
+                var myOutputCurrency = (self.outputValueLabel.text! as NSString).doubleValue
+                myOutputCurrency = myInputCurrency * CurrencyServices.activeCurrency
 
-        // Conversion Double to String to display outputValueLabel.text
-        let stringOutputCurrency = String(myOutputCurrency)
-        outputValueLabel.text = stringOutputCurrency
+                // Conversion Double to String to display outputValueLabel.text
+                let stringOutputCurrency = String(myOutputCurrency)
+                self.outputValueLabel.text = stringOutputCurrency
+            }
+        }
     }
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         inputValueButton.resignFirstResponder()
     }
-
-
-
-
-
-
-
-
-
-
-    
 }

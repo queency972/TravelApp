@@ -12,15 +12,13 @@ class CurrencyServices {
 
     static var activeCurrency: Double = 0
 
-    // Getting data
     // Creation d'un requete, instance URLSessionTask pour l'appel reseau
-
     private let ratesURL = URL(string: "http://data.fixer.io/api/latest?access_key=e3bd9580fafac7241a9fa5b062c66cf1")!
     private var task: URLSessionDataTask?
     private var currencySession =  URLSession(configuration: .default)
 
     // Fonction qui permet de récupérer le données.
-    func getRates() {
+    func getRates(callback: @escaping (Bool) -> Void) {
         task?.cancel()
 
         task = currencySession.dataTask(with: ratesURL) { (data, response, error) in
@@ -28,28 +26,25 @@ class CurrencyServices {
             DispatchQueue.main.async {
                 // Verification des données et si il n'y a pas d'erreur.
                 guard let data = data, error == nil else {
-                   // callback(false, nil)
+                   callback(false)
                     return
                 }
-                print("OK")
                 // On verifie que nous avons une reponse qui a pour code 200.
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                   // callback(false, nil)
+                   callback(false)
                     return
                 }
-                print("OK!")
                 // On decode le JSON en un dictionnaire qui a comme clé String et valeur Double.
-                guard let responseJSON = try? JSONDecoder().decode([String:Double].self, from: data),
+                guard let responseJSON = try? JSONDecoder().decode(ExchangeResponse.self, from: data)
                     // On extrait le rates
-                    let rates = responseJSON["rates"] else {
-                       // callback(false, nil)
+                   else {
+                  callback(false)
                         return
                 }
-                print(rates)
-                // CurrencyServices.activeCurrency = rates.object(forKey: "USD")! as! Double
-                // On crée l'objet quote
-                // callback(true)
-                // print(CurrencyServices.activeCurrency)
+                guard let rates = responseJSON.rates["USD"] else {return}
+                // guard let date = responseJSON.date else {return}
+                CurrencyServices.activeCurrency = rates
+                callback(true)
             }
         }
         // Lancement de la tache.

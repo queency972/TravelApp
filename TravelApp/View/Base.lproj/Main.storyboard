@@ -12,7 +12,7 @@
         <scene sceneID="LOQ-Ka-Fav">
             <objects>
                 <navigationController id="CW9-9x-CXK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Exchange" image="dollarsign.circle" catalog="system" id="2P0-lN-JOX"/>
+                    <tabBarItem key="tabBarItem" title="Exchange" image="currency" id="2P0-lN-JOX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IuO-F0-AZm">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -88,11 +88,14 @@
         <scene sceneID="Yj5-ur-n2V">
             <objects>
                 <navigationController id="41G-YD-wAu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Translation" image="textbox" catalog="system" id="F4b-ut-mcF"/>
+                    <tabBarItem key="tabBarItem" title="Translation" image="translate" id="F4b-ut-mcF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HJ4-MS-Yqv">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.2156862745" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="D4o-Bb-uBL" kind="relationship" relationship="rootViewController" id="z9B-ea-0bQ"/>
@@ -135,7 +138,7 @@
         <scene sceneID="gbV-i2-Atj">
             <objects>
                 <navigationController id="rZn-sZ-SFV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Weather" image="sun.min" catalog="system" id="zFD-uG-MWz"/>
+                    <tabBarItem key="tabBarItem" title="Weather" image="weather" id="zFD-uG-MWz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EzG-FT-X9s">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -346,8 +349,8 @@
     <resources>
         <image name="01d" width="24" height="24"/>
         <image name="cerclev3" width="270" height="274"/>
-        <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
-        <image name="sun.min" catalog="system" width="128" height="121"/>
-        <image name="textbox" catalog="system" width="128" height="91"/>
+        <image name="currency" width="25" height="25"/>
+        <image name="translate" width="25" height="25"/>
+        <image name="weather" width="25" height="25"/>
     </resources>
 </document>
