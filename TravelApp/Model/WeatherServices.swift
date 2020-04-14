@@ -56,8 +56,6 @@ class WeatherServices {
                                 callback(false)
                                 return
                         }
-                        print("La date est", mainResponseJSON.dt)
-                        print("La temperature est de", mainResponseJSON.main["temp"]!)
 
                         guard let responseJSON = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any] else {
                             callback(false)
@@ -67,9 +65,6 @@ class WeatherServices {
                             callback(false)
                             return
                         }
-
-                        print("L'icone est", weatherDetails.first?["icon"]! as! String)
-                        print("La description est", weatherDetails.first?["description"]! as! String)
 
                         let date = mainResponseJSON.dt
                         //self._currentTemp = mainResponseJSON.main["temp"]!
@@ -83,6 +78,10 @@ class WeatherServices {
                         self._date = "\(currentDate)"
                         let downloadedTemp = mainResponseJSON.main["temp"]!
                         self._currentTemp = (downloadedTemp - 273.15).rounded(toPlaces: 0)
+                        print("La date est le:", self._date!)
+                        print("La temperature est de:", self._currentTemp!)
+                        print("L'icone est:", self._tempIcon!)
+                        print("La description est:", self._descriptionTemp!)
                     }
                     catch {
                         print("Error!!!")
