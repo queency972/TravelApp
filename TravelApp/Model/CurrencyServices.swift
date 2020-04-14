@@ -26,19 +26,19 @@ class CurrencyServices {
             DispatchQueue.main.async {
                 // Verification des données et si il n'y a pas d'erreur.
                 guard let data = data, error == nil else {
-                   callback(false)
+                    callback(false)
                     return
                 }
                 // On verifie que nous avons une reponse qui a pour code 200.
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                   callback(false)
+                    callback(false)
                     return
                 }
                 // On decode le JSON en un dictionnaire qui a comme clé String et valeur Double.
                 guard let responseJSON = try? JSONDecoder().decode(CurrencyExchangeResponse.self, from: data)
                     // On extrait le rates
-                   else {
-                  callback(false)
+                    else {
+                        callback(false)
                         return
                 }
                 guard let rates = responseJSON.rates["USD"] else {return}

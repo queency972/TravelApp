@@ -45,58 +45,50 @@ class WeatherServices {
         return _tempIcon
     }
 
-    func getWeather() {
-         task?.cancel()
+    func getWeather(callback: @escaping (Bool) -> Void) {
+        task?.cancel()
+        task = URLSession.shared.dataTask(with: weatherURL) { (data, response, error) in
+            DispatchQueue.main.async {
+                if let data = data, error == nil  {
+                    do {
+                        guard let mainResponseJSON = try? JSONDecoder().decode(CurrentLocalWeather.self, from: data)
+                            else {
+                                callback(false)
+                                return
+                        }
+                        print("La date est", mainResponseJSON.dt)
+                        print("La temperature est de", mainResponseJSON.main["temp"]!)
 
-         task = URLSession.shared.dataTask(with: weatherURL) { (data, response, error) in
-            if let data = data, error == nil  {
-                do {
-                    guard let dateResponseJSON = try? JSONDecoder().decode(CurrentLocalWeather.self, from: data)
-                       else {
-                      //callback(false)
+                        guard let responseJSON = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any] else {
+                            callback(false)
                             return
-                    }
-                    print("La date est", dateResponseJSON.dt)
-
-                    guard let mainResponseJSON = try? JSONDecoder().decode(Main.self, from: data)
-                      else {
-                    //callback(false)
+                        }
+                        guard let weatherDetails = responseJSON["weather"] as? [[String:Any]] else {
+                            callback(false)
                             return
+                        }
+
+                        print("L'icone est", weatherDetails.first?["icon"]! as! String)
+                        print("La description est", weatherDetails.first?["description"]! as! String)
+
+                        let date = mainResponseJSON.dt
+                        //self._currentTemp = mainResponseJSON.main["temp"]!
+                        self._descriptionTemp = (weatherDetails.first?["description"] as? String)
+                        self._tempIcon = (weatherDetails.first?["icon"] as! String)
+                        let convertedDate = Date(timeIntervalSince1970: TimeInterval(date))
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateStyle = .medium
+                        dateFormatter.timeStyle = .none
+                        let currentDate = dateFormatter.string(from: convertedDate)
+                        self._date = "\(currentDate)"
+                        let downloadedTemp = mainResponseJSON.main["temp"]!
+                        self._currentTemp = (downloadedTemp - 273.15).rounded(toPlaces: 0)
                     }
-                    print("La temperature est de", mainResponseJSON.main["temp"]!)
-
-                    guard let weatherResponseJSON = try? JSONDecoder().decode([Weather].self, from: data)
-                      else {
-                    //callback(false)
-                            return
-                    }
-                    print("La description du temps est", weatherResponseJSON[Weather])
-
-
-
-                    //guard let weatherDetails = responseJSON["weather"] as? [[String:Any]], let weatherMain = responseJSON["main"] as? [String:Any] else {return}
-                    //let date = (responseJSON["dt"] as? Double as Any)
-//                    self._currentTemp = (weatherMain["temp"] as! Double)
-//                    self._descriptionTemp = (weatherDetails.first?["description"] as? String)
-//                    self._tempIcon = (weatherDetails.first?["icon"] as? String)
-//                    let convertedDate = Date(timeIntervalSince1970: date as! TimeInterval)
-//                    let dateFormatter = DateFormatter()
-//                    dateFormatter.dateStyle = .medium
-//                    dateFormatter.timeStyle = .none
-//                    let currentDate = dateFormatter.string(from: convertedDate)
-//                    self._date = "\(currentDate)"
-//                    print(self._date!)
-//                    print(self._descriptionTemp!)
-//                    print(self._currentTemp!)
-//                    print(self._tempIcon!)
-                }
-                catch {
-                    print("Error!!!")
+                    catch {
+                        print("Error!!!")
+                    }; callback(true)
                 }
             }
         };task?.resume()
     }
 }
-
-
-

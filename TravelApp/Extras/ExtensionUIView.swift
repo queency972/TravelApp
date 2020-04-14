@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 extension UIView {
-
+    
     func setGradientBackground(colorONe: UIColor, colorTwo: UIColor) {
-
+        
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds
         gradientLayer.colors = [colorONe.cgColor, colorTwo.cgColor]
@@ -37,5 +37,3 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 }
-
-

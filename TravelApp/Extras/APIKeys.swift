@@ -1,5 +1,5 @@
 //
-//  WeatherExchangeResponse.swift
+//  APIKeys.swift
 //  TravelApp
 //
 //  Created by Steve Bernard on 13/04/2020.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-struct CurrentLocalWeather: Codable {
-    var dt: Int
-    var main: [String:Double]
+struct ApiKeys {
+    
 }

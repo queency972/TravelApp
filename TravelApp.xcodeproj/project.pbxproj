@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E923012824453F7C00165D1B /* WeatherExchangeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923012724453F7C00165D1B /* WeatherExchangeResponse.swift */; };
+		E923012B244577A300165D1B /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923012A244577A300165D1B /* APIKeys.swift */; };
 		E9B8F6142444DF6700A52C8B /* CurrencyExchangeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B8F6132444DF6700A52C8B /* CurrencyExchangeResponse.swift */; };
 		E9BACF28243ACFCB0074E6B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BACF27243ACFCB0074E6B0 /* HomeViewController.swift */; };
 		E9BACF2A243AD90E0074E6B0 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BACF29243AD90E0074E6B0 /* ExtensionUIView.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		E923012724453F7C00165D1B /* WeatherExchangeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExchangeResponse.swift; sourceTree = "<group>"; };
+		E923012A244577A300165D1B /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		E9B8F6132444DF6700A52C8B /* CurrencyExchangeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeResponse.swift; sourceTree = "<group>"; };
 		E9BACF27243ACFCB0074E6B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E9BACF29243AD90E0074E6B0 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E92301292445775900165D1B /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				E923012A244577A300165D1B /* APIKeys.swift */,
+				E9BACF29243AD90E0074E6B0 /* ExtensionUIView.swift */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
 		E9FEEFA4242C3DAC005061A2 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +126,7 @@
 		E9FEEFAF242C3DAC005061A2 /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
+				E92301292445775900165D1B /* Extras */,
 				E9FEEFE3242C3E54005061A2 /* Supporting Files */,
 				E9FEEFE2242C3E32005061A2 /* Model */,
 				E9FEEFE1242C3E29005061A2 /* View */,
@@ -165,7 +177,6 @@
 		E9FEEFE2242C3E32005061A2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E9BACF29243AD90E0074E6B0 /* ExtensionUIView.swift */,
 				E9EB11C9243AF875008241A7 /* CurrencyServices.swift */,
 				E9CBA537243BF99400BFEA04 /* WeatherServices.swift */,
 				E9B8F6132444DF6700A52C8B /* CurrencyExchangeResponse.swift */,
@@ -321,6 +332,7 @@
 				E9EB11CA243AF875008241A7 /* CurrencyServices.swift in Sources */,
 				E9BACF2E243AE8B80074E6B0 /* ExchangeRatesViewController.swift in Sources */,
 				E9B8F6142444DF6700A52C8B /* CurrencyExchangeResponse.swift in Sources */,
+				E923012B244577A300165D1B /* APIKeys.swift in Sources */,
 				E9CBA538243BF99400BFEA04 /* WeatherServices.swift in Sources */,
 				E9EB11CC243B0AD2008241A7 /* WeatherAppViewController.swift in Sources */,
 				E923012824453F7C00165D1B /* WeatherExchangeResponse.swift in Sources */,
