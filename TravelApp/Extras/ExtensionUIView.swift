@@ -22,6 +22,16 @@ extension UIView {
         layer.insertSublayer(gradientLayer, at: 0)
     }
 }
+
+extension UIViewController {
+    //Method to show alerts when an error occurs
+    func presentAlert(title: String, message: String) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertVC, animated: true, completion: nil)
+    }
+}
+
 extension Double {
     /// Round the double to decilal places value
     func rounded(toPlaces places:Int) -> Double {

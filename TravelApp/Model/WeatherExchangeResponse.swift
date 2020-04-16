@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CurrentLocalWeather: Codable {
+struct CurrentLocalWeather: Decodable {
     var dt: Int
     var main: [String:Double]
 }

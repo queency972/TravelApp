@@ -32,19 +32,10 @@ class ExchangeRatesViewController: UIViewController {
                 self.outputValueLabel.text = stringOutputCurrency
             }
             else {
-                self.presentAlert()
+                self.presentAlert(title: "Error", message: "Currency download failed")
             }
         }
     }
-
-        private func presentAlert() {
-            // On crée l'alerte.
-            let alertVC = UIAlertController(title: "Error", message: "Currency download failed", preferredStyle: .alert)
-            // On crée l'action.
-            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            // Et on présente l'alerte.
-            present(alertVC, animated: true, completion: nil)
-        }
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         inputValueButton.resignFirstResponder()
