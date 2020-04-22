@@ -25,11 +25,11 @@ class WeatherAppViewController: UIViewController {
                 self.presentAlert(title: "Error", message: "Forecast download failed")
             }
         }
-        view.setGradientBackground(colorONe: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), colorTwo: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        view.setGradientBackground(colorONe: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), colorTwo: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
     }
 
     private func updateIBOuletUI() {
-        self.tempLabel.text = "\(weather.currentTemp)"
+        self.tempLabel.text = "\(weather.currentTemp) °C"
         self.weatherDescriptionLabel.text = "\(String(describing: weather.descriptionTemp!))"
         self.weatherImageView.image = UIImage(named: "\(weather.tempIcon)")
     }

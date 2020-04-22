@@ -13,7 +13,7 @@ class TranslateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.setGradientBackground(colorONe: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), colorTwo: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        view.setGradientBackground(colorONe: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), colorTwo: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
         targetTextView.isEditable = false
     }
 
@@ -32,7 +32,6 @@ class TranslateViewController: UIViewController {
                 self.targetTextView.text = textTranslated
                 //self.textTranslatedTextView.textColor = UIColor.black
             } else {
-                print("error mec !")
                 self.presentAlert(title: "Error", message: "Translation's data download failed")
             }
         }
