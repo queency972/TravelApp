@@ -13,5 +13,3 @@ struct CurrencyExchangeResponse: Codable {
     let date: String
 }
 
-//extension CurrencyExchangeResponse: Equatable {
-//}

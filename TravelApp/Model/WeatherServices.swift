@@ -11,37 +11,37 @@ import Foundation
 class WeatherServices {
 
     private var task: URLSessionDataTask?
-    private var currencySession =  URLSession(configuration: .default)
+    private var weatherSession =  URLSession(configuration: .default)
 
-    private var _tempIcon: String!
-    private var _cityName: String!
-    private var _date: String!
-    private var _currentTemp: Double!
-    private var _descriptionTemp: String!
+    //       private var _tempIcon: String!
+    //       private var _cityName: String!
+    //       private var _date: String!
+    //       private var _currentTemp: Double!
+    //       private var _descriptionTemp: String!
 
     var cityName: String {
-        if _cityName == nil { _cityName = "" }
-        return _cityName
+        if NYCity._cityName == nil { NYCity._cityName = "" }
+        return NYCity._cityName
     }
 
     var date: String {
-        if _date == nil { _date = "" }
-        return _date
+        if NYCity._date == nil { NYCity._date = "" }
+        return NYCity._date
     }
 
     var descriptionTemp: String! {
-        if _descriptionTemp == nil { _descriptionTemp = "" }
-        return _descriptionTemp
+        if NYCity._descriptionTemp == nil { NYCity._descriptionTemp = "" }
+        return NYCity._descriptionTemp
     }
 
     var currentTemp: Double {
-        if _currentTemp == nil { _currentTemp = 0.0 }
-        return _currentTemp
+        if NYCity._currentTemp == nil { NYCity._currentTemp = 0.0 }
+        return NYCity._currentTemp
     }
 
     var tempIcon: String {
-        if _tempIcon == nil { _tempIcon = "" }
-        return _tempIcon
+        if NYCity._tempIcon == nil { NYCity._tempIcon = "" }
+        return NYCity._tempIcon
     }
 
     func getWeather(callback: @escaping (Bool) -> Void) {
@@ -60,23 +60,23 @@ class WeatherServices {
                                 return }
 
                         guard let responseJSON = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any] else { callback(false)
-                                return }
+                            return }
 
                         guard let weatherDetails = responseJSON["weather"] as? [[String:Any]]
                             else { callback(false)
                                 return }
 
                         let date = mainResponseJSON.dt
-                        self._descriptionTemp = (weatherDetails.first?["description"] as? String)
-                        self._tempIcon = (weatherDetails.first?["icon"] as! String)
+                        NYCity._descriptionTemp = (weatherDetails.first?["description"] as? String)
+                        NYCity._tempIcon = (weatherDetails.first?["icon"] as! String)
                         let convertedDate = Date(timeIntervalSince1970: TimeInterval(date))
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateStyle = .medium
                         dateFormatter.timeStyle = .none
                         let currentDate = dateFormatter.string(from: convertedDate)
-                        self._date = "\(currentDate)"
+                        NYCity._date = "\(currentDate)"
                         let downloadedTemp = mainResponseJSON.main["temp"]!
-                        self._currentTemp = (downloadedTemp - 273.15).rounded(toPlaces: 0)
+                        NYCity._currentTemp = (downloadedTemp - 273.15).rounded(toPlaces: 0)
                     }
                     catch {
                         print("Error!!!")
@@ -86,3 +86,5 @@ class WeatherServices {
         };task?.resume()
     }
 }
+
+
