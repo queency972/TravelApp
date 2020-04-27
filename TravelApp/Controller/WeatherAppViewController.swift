@@ -14,7 +14,8 @@ class WeatherAppViewController: UIViewController {
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
-    
+    @IBOutlet weak var dateLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         weather.getWeather { (success) in
@@ -32,5 +33,6 @@ class WeatherAppViewController: UIViewController {
         self.tempLabel.text = "\(weather.currentTemp) °C"
         self.weatherDescriptionLabel.text = "\(String(describing: weather.descriptionTemp!))"
         self.weatherImageView.image = UIImage(named: "\(weather.tempIcon)")
+        self.dateLabel.text = NYCity._date
     }
 }

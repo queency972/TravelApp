@@ -305,6 +305,12 @@
                                 <color key="textColor" red="1" green="0.2156862745" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vu-SG-ICt">
+                                <rect key="frame" x="131" y="436" width="152" height="24"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                                <color key="textColor" red="1" green="0.2156862745" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -317,11 +323,14 @@
                             <constraint firstItem="1rR-0U-1ic" firstAttribute="centerX" secondItem="62f-na-9pb" secondAttribute="centerX" id="arz-Dj-rVM"/>
                             <constraint firstItem="Brl-ER-EA5" firstAttribute="centerX" secondItem="62f-na-9pb" secondAttribute="centerX" id="bzp-vg-YtZ"/>
                             <constraint firstItem="1rR-0U-1ic" firstAttribute="top" secondItem="5ga-aS-jjk" secondAttribute="bottom" constant="6" id="etL-W1-8dv"/>
+                            <constraint firstItem="6Vu-SG-ICt" firstAttribute="leading" secondItem="IBW-zz-PtC" secondAttribute="leading" constant="131" id="fXC-Kc-zUL"/>
+                            <constraint firstItem="6Vu-SG-ICt" firstAttribute="centerY" secondItem="62f-na-9pb" secondAttribute="centerY" id="gSD-zv-fPo"/>
                             <constraint firstItem="0xZ-Ig-bpq" firstAttribute="top" secondItem="Kf2-pN-hKN" secondAttribute="bottom" constant="6" id="gs6-PI-eFj"/>
                             <constraint firstItem="Brl-ER-EA5" firstAttribute="top" secondItem="HsW-NY-C1J" secondAttribute="bottom" constant="15" id="kwb-Uf-4Yz"/>
                             <constraint firstItem="5ga-aS-jjk" firstAttribute="centerX" secondItem="62f-na-9pb" secondAttribute="centerX" id="sJp-vy-dsN"/>
                             <constraint firstItem="Xcb-gK-psl" firstAttribute="centerX" secondItem="62f-na-9pb" secondAttribute="centerX" id="vfF-NE-pMT"/>
                             <constraint firstItem="Kf2-pN-hKN" firstAttribute="top" secondItem="Brl-ER-EA5" secondAttribute="bottom" constant="15" id="xFH-qn-IFU"/>
+                            <constraint firstItem="IBW-zz-PtC" firstAttribute="trailing" secondItem="6Vu-SG-ICt" secondAttribute="trailing" constant="131" id="xx6-qG-GK1"/>
                             <constraint firstItem="HsW-NY-C1J" firstAttribute="centerX" secondItem="62f-na-9pb" secondAttribute="centerX" id="yUH-Ra-eyt"/>
                             <constraint firstItem="P8y-UO-A43" firstAttribute="centerX" secondItem="62f-na-9pb" secondAttribute="centerX" id="zvs-J5-gDu"/>
                         </constraints>
@@ -329,6 +338,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="WEATHER" id="uvr-tJ-dsg"/>
                     <connections>
+                        <outlet property="dateLabel" destination="6Vu-SG-ICt" id="veG-tm-NTT"/>
                         <outlet property="tempLabel" destination="0xZ-Ig-bpq" id="DmR-o7-vI2"/>
                         <outlet property="weatherDescriptionLabel" destination="Kf2-pN-hKN" id="xYR-uu-S8G"/>
                         <outlet property="weatherImageView" destination="Brl-ER-EA5" id="r1R-q7-iXE"/>
@@ -336,7 +346,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvg-cu-UuV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="242.40000000000001" y="521.28935532233891"/>
+            <point key="canvasLocation" x="242.0289855072464" y="520.98214285714289"/>
         </scene>
         <!--CURRENCY CONVERSION-->
         <scene sceneID="97G-DJ-Qjm">

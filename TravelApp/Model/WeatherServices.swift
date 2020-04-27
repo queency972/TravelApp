@@ -44,6 +44,7 @@ class WeatherServices {
         return NYCity._tempIcon
     }
 
+    // func to get forecast.
     func getWeather(callback: @escaping (Bool) -> Void) {
         task?.cancel()
         task = URLSession.shared.dataTask(with: Url().weatherNYURL) { (data, response, error) in

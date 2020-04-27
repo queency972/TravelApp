@@ -12,8 +12,7 @@ class CurrencyServices {
 
     static var activeCurrency: Double = 0
 
-    // Creation d'un requete, instance URLSessionTask pour l'appel reseau
-    
+    // Create request, instance URLSessionTask for call network
     private var task: URLSessionDataTask?
     private var currencySession =  URLSession(configuration: .default)
 
@@ -22,19 +21,20 @@ class CurrencyServices {
         task?.cancel()
 
         task = currencySession.dataTask(with: Url().ratesURL) { (data, response, error) in
-            // Tout ce qui touche à l'interface doit avoir lieu dans la main Queue, On place ce block dans la Main Queue.
+            // All regarding interface must be in the mainQueue, we put this block in the mainQueue.
             DispatchQueue.main.async {
                 // Verification des données et si il n'y a pas d'erreur.
                 guard let data = data, error == nil else {
                     callback(false)
                     return
                 }
-                // On verifie que nous avons une reponse qui a pour code 200.
+                // We check if we have an answer with 200 code.
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                     callback(false)
                     return
                 }
                 // On decode le JSON en un dictionnaire qui a comme clé String et valeur Double.
+                // We decode JSON into dictionaryn who has String Key and Double value
                 guard let responseJSON = try? JSONDecoder().decode(CurrencyExchangeResponse.self, from: data)
                     // On extrait le rates
                     else {
@@ -47,7 +47,7 @@ class CurrencyServices {
                 callback(true)
             }
         }
-        // Lancement de la tache.
+        // Launch task
         task?.resume()
     }
 }
