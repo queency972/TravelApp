@@ -23,25 +23,28 @@ class TranslateViewController: UIViewController {
     @IBAction func deleteTextButton(_ sender: UIButton) {
         sourceTextView.text = nil
     }
-    
+    // Func allowing to translate sourceTextView
     @IBAction func translateButton() {
         guard let sourceText = sourceTextView.text else { return }
-        translate.getTranslation(text: sourceText) { (success, translation) in
-            if success, let translation = translation?.data.translations {
-                let textTranslated = translation[0].translatedText
-                self.targetTextView.text = textTranslated
-                //self.textTranslatedTextView.textColor = UIColor.black
-            } else {
-                self.presentAlert(title: "Error", message: "Translation's data download failed")
+        translate.getTranslation(text: sourceText) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let responseJson):
+                    let translation = responseJson.data.translations
+                    let textTranslated = translation[0].translatedText
+                    self?.targetTextView.text = textTranslated
+                case .failure(_):
+                    self?.presentAlert(title: "Connection error", message: "")
+                }
             }
         }
     }
-
+    // Func allowing to clear all text.
     @IBAction func clearTextButton() {
         sourceTextView.text = nil
         targetTextView.text = nil
     }
-
+    // Func allowing to dismiss the keyboard.
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         sourceTextView.resignFirstResponder()
     }

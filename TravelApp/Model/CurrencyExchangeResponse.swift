@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CurrencyExchangeResponse: Codable {
+struct CurrencyExchangeResponse: Decodable {
     let rates: [String:Double]
     let date: String
 }

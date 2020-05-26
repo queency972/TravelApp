@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NYCity {
+struct City {
     static var _tempIcon: String!
     static var _cityName: String!
     static var _date: String!

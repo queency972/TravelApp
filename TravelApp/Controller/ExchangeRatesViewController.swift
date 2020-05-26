@@ -18,25 +18,25 @@ class ExchangeRatesViewController: UIViewController {
 
     @IBOutlet weak var inputValueButton: UITextField!
     @IBOutlet weak var outputValueLabel: UILabel!
+    
 
+    // Func allowing to change outputValueLabel automatically
     @IBAction func changed(_ sender: Any) {
-        currency.getRates { (success) in
-            if success {
-                // Set text to label
-                let myInputCurrency = (self.inputValueButton.text! as NSString).doubleValue
-                var myOutputCurrency = (self.outputValueLabel.text! as NSString).doubleValue
-                myOutputCurrency = myInputCurrency * CurrencyServices.activeCurrency
+        currency.getRates { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let rate):
+                    guard let inputValue = Double(self?.inputValueButton.text ?? "0.0") else {return}
+                    let resultValue = String(inputValue * rate)
+                    self?.outputValueLabel.text = resultValue
 
-                // Conversion Double to String to display outputValueLabel.text
-                let stringOutputCurrency = String(myOutputCurrency)
-                self.outputValueLabel.text = stringOutputCurrency
-            }
-            else {
-                self.presentAlert(title: "Error", message: "Currency download failed")
+                case .failure(_):
+                    self?.presentAlert(title: "Connection error", message: "")
+                }
             }
         }
     }
-
+    // Func allowing to dismiss the keyboard.
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         inputValueButton.resignFirstResponder()
     }

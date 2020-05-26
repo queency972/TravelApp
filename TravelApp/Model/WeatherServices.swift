@@ -13,79 +13,30 @@ class WeatherServices {
     private var task: URLSessionDataTask?
     private var weatherSession =  URLSession(configuration: .default)
 
-    //       private var _tempIcon: String!
-    //       private var _cityName: String!
-    //       private var _date: String!
-    //       private var _currentTemp: Double!
-    //       private var _descriptionTemp: String!
-
-    var cityName: String {
-        if NYCity._cityName == nil { NYCity._cityName = "" }
-        return NYCity._cityName
-    }
-
-    var date: String {
-        if NYCity._date == nil { NYCity._date = "" }
-        return NYCity._date
-    }
-
-    var descriptionTemp: String! {
-        if NYCity._descriptionTemp == nil { NYCity._descriptionTemp = "" }
-        return NYCity._descriptionTemp
-    }
-
-    var currentTemp: Double {
-        if NYCity._currentTemp == nil { NYCity._currentTemp = 0.0 }
-        return NYCity._currentTemp
-    }
-
-    var tempIcon: String {
-        if NYCity._tempIcon == nil { NYCity._tempIcon = "" }
-        return NYCity._tempIcon
+    init(session: URLSession = URLSession(configuration: .default))  {
+        self.weatherSession = session
     }
 
     // func to get forecast.
-    func getWeather(callback: @escaping (Bool) -> Void) {
+    func getWeather(callback: @escaping (Result<CurrentLocalWeather, Error>) -> Void) {
         task?.cancel()
-        task = URLSession.shared.dataTask(with: Url().weatherNYURL) { (data, response, error) in
-            DispatchQueue.main.async {
-                if let data = data, error == nil  {
-                    do {
-
-                        guard let response = response as? HTTPURLResponse, response.statusCode == 200
-                            else { callback(false)
-                                return }
-
-                        guard let mainResponseJSON = try? JSONDecoder().decode(CurrentLocalWeather.self, from: data)
-                            else { callback(false)
-                                return }
-
-                        guard let responseJSON = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any] else { callback(false)
-                            return }
-
-                        guard let weatherDetails = responseJSON["weather"] as? [[String:Any]]
-                            else { callback(false)
-                                return }
-
-                        let date = mainResponseJSON.dt
-                        NYCity._descriptionTemp = (weatherDetails.first?["description"] as? String)
-                        NYCity._tempIcon = (weatherDetails.first?["icon"] as! String)
-                        let convertedDate = Date(timeIntervalSince1970: TimeInterval(date))
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateStyle = .medium
-                        dateFormatter.timeStyle = .none
-                        let currentDate = dateFormatter.string(from: convertedDate)
-                        NYCity._date = "\(currentDate)"
-                        let downloadedTemp = mainResponseJSON.main["temp"]!
-                        NYCity._currentTemp = (downloadedTemp - 273.15).rounded(toPlaces: 0)
-                    }
-                    catch {
-                        print("Error!!!")
-                    }; callback(true)
-                }
+        guard let url = URL(string: "http://api.openweathermap.org/data/2.5/group?id=5128581,2988507&units=metric&appid=bd287ad9efd242c9e57f715b9a2fab60") else {return}
+        task = weatherSession.dataTask(with: url) { (data, response, error) in
+            // Check if we get data.
+            guard let data = data, error == nil else {
+                callback(.failure(NetworkError.noData))
+                return
             }
+            // Check if we get code 200.
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200
+                else { callback(.failure(NetworkError.noResponse))
+                    return }
+              // Check if we get JSON
+            guard let mainResponseJSON = try? JSONDecoder().decode(CurrentLocalWeather.self, from: data)
+                else { callback(.failure(NetworkError.noData))
+                    return }
+            callback(.success(mainResponseJSON))
+
         };task?.resume()
     }
 }
-
-
