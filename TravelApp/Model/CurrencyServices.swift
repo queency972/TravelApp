@@ -14,23 +14,23 @@ enum NetworkError: Error {
     case unDecodable
 }
 
-class CurrencyServices {
-
+class CurrencyServices: UrlEncoder {
+    
     // Create request, instance URLSessionTask for call network
     private var task: URLSessionDataTask?
     private var currencySession : URLSession
-
+    
     // 
-    init(session: URLSession = URLSession(configuration: .default))  {
-        self.currencySession = session
+    init(ratesSession: URLSession = URLSession(configuration: .default))  {
+        self.currencySession = ratesSession
     }
-
+    
     // Fonction qui permet de récupérer le données.
     func getRates(callback: @escaping (Result<Double, Error>) -> Void) {
         task?.cancel()
-        guard let url = URL(string: "http://data.fixer.io/api/latest?access_key=e3bd9580fafac7241a9fa5b062c66cf1") else {return}
+        guard let baseUrl = URL(string: "http://data.fixer.io/api/latest") else {return}
+        let url = encode(baseUrl: baseUrl, parameters: [("access_key", "e3bd9580fafac7241a9fa5b062c66cf1")])
         task = currencySession.dataTask(with: url) { (data, response, error) in
-            // All regarding interface must be in the mainQueue, we put this block in the mainQueue.
             // check if you don't have any error.
             guard let data = data, error == nil else {
                 callback(.failure(NetworkError.noData))
@@ -49,9 +49,7 @@ class CurrencyServices {
                     return
             }
             guard let rates = responseJSON.rates["USD"] else {return}
-            // guard let date = responseJSON.date else {return}
-            callback(.success(rates))
-            
+            callback(.success(rates))            
         }
         // Launch task
         task?.resume()

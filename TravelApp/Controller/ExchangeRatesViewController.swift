@@ -23,6 +23,7 @@ class ExchangeRatesViewController: UIViewController {
     // Func allowing to change outputValueLabel automatically
     @IBAction func changed(_ sender: Any) {
         currency.getRates { [weak self] result in
+            // All regarding interface must be in the mainQueue, we put this block in the mainQueue.
             DispatchQueue.main.async {
                 switch result {
                 case .success(let rate):

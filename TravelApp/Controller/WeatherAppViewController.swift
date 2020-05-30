@@ -39,7 +39,7 @@ class WeatherAppViewController: UIViewController {
         }
     }
 
-     // Func allowing to format the date.
+    // Func allowing to format the date.
     func formatDate(date: Int) {
         let convertedDate = Date(timeIntervalSince1970: TimeInterval(date))
         let dateFormatter = DateFormatter()
