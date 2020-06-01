@@ -8,16 +8,22 @@
 
 import Foundation
 
-class WeatherServices: UrlEncoder {
+final class WeatherServices: UrlEncoder {
+
+    // MARK: - Properties
 
     private var task: URLSessionDataTask?
     private var weatherSession =  URLSession(configuration: .default)
+
+    // MARK: - Initializer
 
     init(session: URLSession = URLSession(configuration: .default))  {
         self.weatherSession = session
     }
 
-    // func to get forecast.
+    // MARK: - Method
+
+    /// func to get forecast.
     func getWeather(callback: @escaping (Result<CurrentLocalWeather, Error>) -> Void) {
         task?.cancel()
         guard let baseUrl = URL(string: "http://api.openweathermap.org/data/2.5/group") else {return}

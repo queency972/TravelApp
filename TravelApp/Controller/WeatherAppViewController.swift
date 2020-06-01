@@ -8,14 +8,21 @@
 
 import UIKit
 
-class WeatherAppViewController: UIViewController {
-    let weather = WeatherServices()
+final class WeatherAppViewController: UIViewController {
 
-    @IBOutlet var cityNameLabels: [UILabel]!
-    @IBOutlet var tempLabels: [UILabel]!
-    @IBOutlet var descriptionLabels: [UILabel]!
-    @IBOutlet var iconImageViews: [UIImageView]!
-    @IBOutlet weak var dateLabel: UILabel!
+    // MARK: - Properties
+
+    private let weather = WeatherServices()
+
+    // MARK: - Outlets
+
+    @IBOutlet private var cityNameLabels: [UILabel]!
+    @IBOutlet private var tempLabels: [UILabel]!
+    @IBOutlet private var descriptionLabels: [UILabel]!
+    @IBOutlet private var iconImageViews: [UIImageView]!
+    @IBOutlet weak private var dateLabel: UILabel!
+
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +46,10 @@ class WeatherAppViewController: UIViewController {
         }
     }
 
+    // MARK: - Methods
+
     // Func allowing to format the date.
-    func formatDate(date: Int) {
+    private func formatDate(date: Int) {
         let convertedDate = Date(timeIntervalSince1970: TimeInterval(date))
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
@@ -50,7 +59,7 @@ class WeatherAppViewController: UIViewController {
     }
 
     // Func allowing to setup UI
-    func setupUI(cityLabel: UILabel, tempLabel: UILabel, icon: UIImageView, description: UILabel, forecast: List) {
+   private func setupUI(cityLabel: UILabel, tempLabel: UILabel, icon: UIImageView, description: UILabel, forecast: List) {
         let convertedTemp = Int(forecast.main.temp)
         cityLabel.text = forecast.name
         icon.image  = UIImage(named: "\(forecast.weather.first!.icon)")

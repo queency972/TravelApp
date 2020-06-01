@@ -11,7 +11,7 @@ import XCTest
 
 class TravelAppServiceTestCase: XCTestCase {
 
-    // Tests Rates =================================================================================================================
+    // MARK: - Test Rates Service
 
     func testGetRatesShouldPostFailedCallbackIfError() {
         // Given
@@ -98,7 +98,7 @@ class TravelAppServiceTestCase: XCTestCase {
         }
     }
 
-    // Test Weather =================================================================================================================
+    // MARK: - Weather Services
 
     func testGetWeatherShouldPostFailedCallbackIfError() {
         // Given
@@ -183,7 +183,7 @@ class TravelAppServiceTestCase: XCTestCase {
         }
     }
 
-    // Test Translate =================================================================================================================
+    // MARK: - Translation Service
 
     func testGetTranslateShouldPostFailedCallbackIfError() {
         // Given
@@ -259,7 +259,7 @@ class TravelAppServiceTestCase: XCTestCase {
         // When
         let expectation = XCTestExpectation(description: "Waiting...")
         translationService.getTranslation(text: "") { result in
-        // Then
+            // Then
             guard case .success(let success) = result else {
                 return
             }

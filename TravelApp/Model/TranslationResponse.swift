@@ -8,13 +8,19 @@
 
 import Foundation
 
+// MARK: - TranslationD ata
+
 struct TranslationData: Decodable {
     var data: Translations
 }
 
+// MARK: - Translations
+
 struct Translations: Decodable {
     let translations: [TranslatedText]
 }
+
+// MARK: - Translated Text
 
 struct TranslatedText: Decodable {
     let translatedText: String

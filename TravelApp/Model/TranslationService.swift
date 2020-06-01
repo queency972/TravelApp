@@ -8,18 +8,23 @@
 
 import Foundation
 
-class TranslationService: UrlEncoder {
+final class TranslationService: UrlEncoder {
+
+    // MARK: -  Properties
 
     var languageSource: String = ""
-
     private var task: URLSessionDataTask?
     private var translationSession =  URLSession(configuration: .default)
+
+    // MARK: -  Initializer
 
     init(session: URLSession = URLSession(configuration: .default))  {
         self.translationSession = session
     }
 
-    //Method to retrieve url of Google Translate API
+    // MARK: - Methods
+
+    /// Method to retrieve url of Google Translate API
     private func urlTranslation(text: String) -> String {
         guard let baseUrl = URL(string: "https://www.googleapis.com/language/translate/v2") else {return ""}
         let url = encode(baseUrl: baseUrl, parameters: [("key","AIzaSyCSKtor7x-mr2JnDUuqTFE66TKv5m7vNfU"),("source","\(languageSource)"), ("target","en"), ("format","text"), ("q","")])
@@ -30,7 +35,7 @@ class TranslationService: UrlEncoder {
         return myUrl
     }
     
-    //Method to get the translation from the Google Translate API with a POST request
+    /// Method to get the translation from the Google Translate API with a POST request
     func getTranslation(text: String, callback: @escaping (Result<TranslationData, Error>) -> Void) {
         //let request = translationRequest(text: text)
         guard let url = URL(string: urlTranslation(text: text)) else {return}

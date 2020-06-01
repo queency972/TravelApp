@@ -8,17 +8,25 @@
 
 import UIKit
 
-class ExchangeRatesViewController: UIViewController {
+final class ExchangeRatesViewController: UIViewController {
+
+    // MARK: - Properties
+
     let currency = CurrencyServices()
+
+   // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.setGradientBackground(colorONe: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), colorTwo: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1))
     }
 
+    // MARK: - Outlets
+
     @IBOutlet weak var inputValueButton: UITextField!
     @IBOutlet weak var outputValueLabel: UILabel!
     
+    // MARK: - Methods
 
     // Func allowing to change outputValueLabel automatically
     @IBAction func changed(_ sender: Any) {

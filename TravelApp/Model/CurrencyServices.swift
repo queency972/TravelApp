@@ -8,24 +8,30 @@
 
 import Foundation
 
+// MARK: - Enum
+
 enum NetworkError: Error {
     case noData
     case noResponse
     case unDecodable
 }
 
-class CurrencyServices: UrlEncoder {
+final class CurrencyServices: UrlEncoder {
+
+    // MARK: - Properties
     
     // Create request, instance URLSessionTask for call network
     private var task: URLSessionDataTask?
     private var currencySession : URLSession
     
-    // 
+    // MARK: - Initializer
     init(ratesSession: URLSession = URLSession(configuration: .default))  {
         self.currencySession = ratesSession
     }
+
+     // MARK: - Method
     
-    // Fonction qui permet de récupérer le données.
+    /// Func allowing to get data
     func getRates(callback: @escaping (Result<Double, Error>) -> Void) {
         task?.cancel()
         guard let baseUrl = URL(string: "http://data.fixer.io/api/latest") else {return}

@@ -8,8 +8,13 @@
 
 import UIKit
 
-class TranslateViewController: UIViewController {
+final class TranslateViewController: UIViewController {
+
+    // MARK: - Properties
+
     let translate = TranslationService()
+
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +22,13 @@ class TranslateViewController: UIViewController {
         targetTextView.isEditable = false
     }
 
+    // MARK: - Outlets
+
     @IBOutlet weak var sourceTextView: UITextView!
     @IBOutlet weak var targetTextView: UITextView!
     @IBOutlet weak var FlagImage: UIImageView!
+
+    // MARK: - Methods
 
     @IBAction func changeLanguageButton(_ sender: UIButton) {
         let spainImage = #imageLiteral(resourceName: "Spain")
@@ -36,7 +45,8 @@ class TranslateViewController: UIViewController {
     @IBAction func deleteTextButton(_ sender: UIButton) {
         sourceTextView.text = nil
     }
-    // Func allowing to translate sourceTextView
+
+    /// Func allowing to translate sourceTextView
     @IBAction func translateButton() {
         guard let sourceText = sourceTextView.text else { return }
         translate.getTranslation(text: sourceText) { [weak self] result in
