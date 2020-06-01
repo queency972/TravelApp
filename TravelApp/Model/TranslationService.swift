@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import SwiftGoogleTranslate
-
 
 class TranslationService: UrlEncoder {
 

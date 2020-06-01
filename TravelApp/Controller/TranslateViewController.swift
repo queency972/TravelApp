@@ -19,16 +19,16 @@ class TranslateViewController: UIViewController {
 
     @IBOutlet weak var sourceTextView: UITextView!
     @IBOutlet weak var targetTextView: UITextView!
-    @IBOutlet weak var LanguageImage: UIImageView!
+    @IBOutlet weak var FlagImage: UIImageView!
 
     @IBAction func changeLanguageButton(_ sender: UIButton) {
         let spainImage = #imageLiteral(resourceName: "Spain")
         let franceImage = #imageLiteral(resourceName: "France")
-        if LanguageImage.image == spainImage {
-            LanguageImage.image = franceImage
+        if FlagImage.image == spainImage {
+            FlagImage.image = franceImage
             translate.languageSource = "fr"
         } else {
-            LanguageImage.image = spainImage
+            FlagImage.image = spainImage
             translate.languageSource = "es"
         }
     }
