@@ -30,7 +30,7 @@ final class TranslationViewController: UIViewController {
 
     // MARK: - Methods
 
-    @IBAction func changeLanguageButton(_ sender: UIButton) {
+    @IBAction private func changeLanguageButton(_ sender: UIButton) {
         let spainImage = #imageLiteral(resourceName: "Spain")
         let franceImage = #imageLiteral(resourceName: "France")
         if FlagImage.image == spainImage {
@@ -42,12 +42,12 @@ final class TranslationViewController: UIViewController {
         }
     }
 
-    @IBAction func deleteTextButton(_ sender: UIButton) {
+    @IBAction private func deleteTextButton(_ sender: UIButton) {
         sourceTextView.text = nil
     }
 
     /// Func allowing to translate sourceTextView
-    @IBAction func translateButton() {
+    @IBAction private func translateButton() {
         guard let sourceText = sourceTextView.text else { return }
         translate.getTranslation(text: sourceText) { [weak self] result in
             DispatchQueue.main.async {
@@ -63,12 +63,12 @@ final class TranslationViewController: UIViewController {
         }
     }
     // Func allowing to clear all text.
-    @IBAction func clearTextButton() {
+    @IBAction private func clearTextButton() {
         sourceTextView.text = nil
         targetTextView.text = nil
     }
     // Func allowing to dismiss the keyboard.
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+    @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         sourceTextView.resignFirstResponder()
     }
 }

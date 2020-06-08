@@ -23,13 +23,13 @@ final class ExchangeRatesViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet weak var inputValueButton: UITextField!
-    @IBOutlet weak var outputValueLabel: UILabel!
+    @IBOutlet weak private var inputValueButton: UITextField!
+    @IBOutlet weak private var outputValueLabel: UILabel!
     
     // MARK: - Methods
 
     // Func allowing to change outputValueLabel automatically
-    @IBAction func changed(_ sender: Any) {
+    @IBAction private func changed(_ sender: Any) {
         currency.getRates { [weak self] result in
             // All regarding interface must be in the mainQueue, we put this block in the mainQueue.
             DispatchQueue.main.async {
@@ -46,7 +46,7 @@ final class ExchangeRatesViewController: UIViewController {
         }
     }
     // Func allowing to dismiss the keyboard.
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+    @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         inputValueButton.resignFirstResponder()
     }
 }

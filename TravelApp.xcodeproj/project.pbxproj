@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,7 +25,7 @@
 		E9BACF2A243AD90E0074E6B0 /* UIView+setGradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BACF29243AD90E0074E6B0 /* UIView+setGradientBackground.swift */; };
 		E9BACF2E243AE8B80074E6B0 /* ExchangeRatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BACF2D243AE8B80074E6B0 /* ExchangeRatesViewController.swift */; };
 		E9CBA538243BF99400BFEA04 /* WeatherServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBA537243BF99400BFEA04 /* WeatherServices.swift */; };
-		E9CBA53C243D61D100BFEA04 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBA53B243D61D100BFEA04 /* TranslateViewController.swift */; };
+		E9CBA53C243D61D100BFEA04 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBA53B243D61D100BFEA04 /* TranslationViewController.swift */; };
 		E9EB11CA243AF875008241A7 /* CurrencyServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EB11C9243AF875008241A7 /* CurrencyServices.swift */; };
 		E9EB11CC243B0AD2008241A7 /* WeatherAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EB11CB243B0AD2008241A7 /* WeatherAppViewController.swift */; };
 		E9FEEFB1242C3DAC005061A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FEEFB0242C3DAC005061A2 /* AppDelegate.swift */; };
@@ -80,7 +80,7 @@
 		E9BACF29243AD90E0074E6B0 /* UIView+setGradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+setGradientBackground.swift"; sourceTree = "<group>"; };
 		E9BACF2D243AE8B80074E6B0 /* ExchangeRatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesViewController.swift; sourceTree = "<group>"; };
 		E9CBA537243BF99400BFEA04 /* WeatherServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServices.swift; sourceTree = "<group>"; };
-		E9CBA53B243D61D100BFEA04 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
+		E9CBA53B243D61D100BFEA04 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		E9EB11C9243AF875008241A7 /* CurrencyServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServices.swift; sourceTree = "<group>"; };
 		E9EB11CB243B0AD2008241A7 /* WeatherAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppViewController.swift; sourceTree = "<group>"; };
 		E9FEEFAD242C3DAC005061A2 /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +147,6 @@
 				5B1BE364A06587427C917D33 /* Pods-TravelAppTests.debug.xcconfig */,
 				E49E7763EB6CFF0DC368A13D /* Pods-TravelAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -225,7 +224,7 @@
 			children = (
 				E9BACF2D243AE8B80074E6B0 /* ExchangeRatesViewController.swift */,
 				E9EB11CB243B0AD2008241A7 /* WeatherAppViewController.swift */,
-				E9CBA53B243D61D100BFEA04 /* TranslateViewController.swift */,
+				E9CBA53B243D61D100BFEA04 /* TranslationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -508,7 +507,7 @@
 				E912D22524732E3C00D8181A /* Double+rounded.swift in Sources */,
 				E92EC99B24465E0B00386438 /* TranslationResponse.swift in Sources */,
 				E9FEEFB1242C3DAC005061A2 /* AppDelegate.swift in Sources */,
-				E9CBA53C243D61D100BFEA04 /* TranslateViewController.swift in Sources */,
+				E9CBA53C243D61D100BFEA04 /* TranslationViewController.swift in Sources */,
 				E992EB35246C39360088D0A7 /* UIViewController+alert.swift in Sources */,
 				E9FEEFB3242C3DAC005061A2 /* SceneDelegate.swift in Sources */,
 				E9EB11CA243AF875008241A7 /* CurrencyServices.swift in Sources */,
