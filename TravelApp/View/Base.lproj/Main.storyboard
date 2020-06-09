@@ -196,7 +196,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="TRANSLATION" id="IYw-Zb-uPY"/>
                     <connections>
-                        <outlet property="FlagImage" destination="ajX-ea-6NJ" id="78x-kK-X5H"/>
+                        <outlet property="flagImage" destination="ajX-ea-6NJ" id="78x-kK-X5H"/>
                         <outlet property="sourceTextView" destination="oUq-0D-iTg" id="P18-oz-dNN"/>
                         <outlet property="targetTextView" destination="Ah0-pZ-wcE" id="CoB-gA-IAu"/>
                     </connections>
